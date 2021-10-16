@@ -12,7 +12,10 @@
     "prettier:check": "prettier --check ."
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.4",
     "autoprefixer": "^10.3.7",
+    "classnames": "^2.3.1",
     "next": "11.1.2",
     "next-seo": "^4.28.1",
     "postcss": "^8.3.9",
