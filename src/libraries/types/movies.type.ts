@@ -15,3 +15,10 @@ export type IMovieDetailContext = {
 export type IMovieDetailRoute = {
   movieId: number
 }
+
+export type IPayloadDiscoverMovieProps = {
+  page?: number
+  language?: string
+  'release_date.gte'?: string
+  'release_date.lte'?: string
+}

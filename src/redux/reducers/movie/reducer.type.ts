@@ -7,10 +7,16 @@ export type IActionsProps = {
 
 export type IStateProps = {
   movies: IResultProps[]
-  releaseDate?: string
+  releaseDate?: IReleaseDateProps
   page?: number
 }
 
 export type IStateSelectorProps = {
   movie?: IStateProps
+}
+
+export type IReleaseDateProps = {
+  year: number
+  gte: string
+  lte: string
 }

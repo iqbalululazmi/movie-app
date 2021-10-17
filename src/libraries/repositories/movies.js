@@ -35,11 +35,14 @@ const MoviesRepository = () => {
     return data
   }
 
-  const fetchDisCoverMovie = async () => {
+  const fetchDiscoverMovie = async (query) => {
     console.log(API_ENDPOINT.DISCOVER)
-    const response = await fetch(API_ENDPOINT.DISCOVER, {
-      method: 'GET',
-    })
+    const response = await fetch(
+      `${API_ENDPOINT.DISCOVER}&${new URLSearchParams(query)}`,
+      {
+        method: 'GET',
+      }
+    )
     const data = await response.json()
     return data
   }
@@ -49,7 +52,7 @@ const MoviesRepository = () => {
     fetchDetailMovie,
     fetchTrendingMovie,
     fetchPopularMovie,
-    fetchDisCoverMovie,
+    fetchDiscoverMovie,
   }
 }
 

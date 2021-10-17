@@ -1,7 +1,12 @@
 import MoviesRepository from '@libraries/repositories/movies'
+import { IPayloadDiscoverMovieProps } from '@libraries/types/movies.type'
 import { useDispatch, useSelector } from 'react-redux'
-import { IStateProps, IStateSelectorProps } from './reducer.type'
-import { fetchMovie } from './slices'
+import {
+  IReleaseDateProps,
+  IStateProps,
+  IStateSelectorProps,
+} from './reducer.type'
+import { fetchMovie, filterByYear } from './slices'
 
 export const useMovieDispatch = () => {
   const { movie }: IStateSelectorProps = useSelector((state) => state)
@@ -11,14 +16,20 @@ export const useMovieDispatch = () => {
     dispatch(fetchMovie(props))
   }
 
-  const doFetchMovie = async () => {
-    try {
-      const { results } = await MoviesRepository().fetchNowPlaying()
-      console.log(results)
+  const doFilterByYear = async (props: IReleaseDateProps) => {
+    dispatch(filterByYear(props))
+    doFetchMovie({
+      'release_date.gte': props.gte,
+      'release_date.lte': props.lte,
+    })
+  }
 
-      dispatch(fetchMovie(results))
+  const doFetchMovie = async (props: IPayloadDiscoverMovieProps) => {
+    try {
+      const { results } = await MoviesRepository().fetchDiscoverMovie(props)
+      dispatch(fetchMovie({ movies: results }))
     } catch (error) {
-      dispatch(fetchMovie([]))
+      dispatch(fetchMovie({ movies: [] }))
     }
   }
 
@@ -26,5 +37,6 @@ export const useMovieDispatch = () => {
     movie,
     doFetchMovie,
     doUpdateMovieData,
+    doFilterByYear,
   }
 }

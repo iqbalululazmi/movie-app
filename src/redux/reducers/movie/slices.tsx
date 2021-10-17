@@ -5,7 +5,11 @@ const { createSlice } = require('@reduxjs/toolkit')
 
 const initialState = {
   movies: [], // data
-  releaseDate: '',
+  releaseDate: {
+    year: 2021,
+    gte: '',
+    lte: '',
+  },
   page: 1,
 }
 
@@ -15,6 +19,7 @@ const slices = createSlice({
   reducers: {
     fetchMovie(state: IStateProps, actions: IActionsProps) {
       const { movies } = actions.payload
+      console.log('slie', movies)
       Object.assign(state, {
         ...state,
         movies,
@@ -27,8 +32,14 @@ const slices = createSlice({
         page,
       })
     },
+    filterByYear(state: IStateProps, action: IActionsProps) {
+      Object.assign(state, {
+        ...state,
+        releaseDate: action.payload,
+      })
+    },
   },
 })
 
-export const { fetchMovie, paging } = slices.actions
+export const { fetchMovie, paging, filterByYear } = slices.actions
 export default slices.reducer
