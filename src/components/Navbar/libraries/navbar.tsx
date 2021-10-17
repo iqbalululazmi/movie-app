@@ -2,6 +2,7 @@ import { Disclosure } from '@headlessui/react'
 import { MenuIcon, SearchIcon, XIcon } from '@heroicons/react/outline'
 import classNames from 'classnames'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const navigation = [
   { name: 'Movies', href: '/movie', current: false },
@@ -29,31 +30,33 @@ const NavbarComponent = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
-                  <Image
-                    className="hidden lg:block h-8 w-auto"
-                    src="/tmdb.svg"
-                    alt="Workflow"
-                    width={50}
-                    height={50}
-                  />
+                <div className="flex-shrink-0 flex items-center cursor-pointer">
+                  <Link href="/" passHref>
+                    <Image
+                      className="hidden lg:block h-8 w-auto"
+                      src="/tmdb.svg"
+                      alt="Workflow"
+                      width={50}
+                      height={50}
+                    />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:flex-row sm:items-center">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? 'bg-gray-900 text-white'
-                            : 'text-gray-300 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
+                      <Link key={item.name} href={item.href}>
+                        <a
+                          className={classNames(
+                            item.current
+                              ? 'bg-gray-900 text-white'
+                              : 'text-gray-300 hover:text-white',
+                            'px-3 py-2 rounded-md text-sm font-medium'
+                          )}
+                          aria-current={item.current ? 'page' : undefined}
+                        >
+                          {item.name}
+                        </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
