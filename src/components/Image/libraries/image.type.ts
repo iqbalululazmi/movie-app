@@ -1,6 +1,5 @@
-export interface IImageProps {
+export type IImageProps = {
   src: string
   alt: string
   className: string
-  parentClassName?: string
 }

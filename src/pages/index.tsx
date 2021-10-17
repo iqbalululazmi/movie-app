@@ -3,17 +3,22 @@ import MoviesRepository from '@libraries/repositories/movies'
 import { IHomeResponseProps } from '@libraries/types/home.type'
 
 export async function getServerSideProps() {
-  const trendingData = await MoviesRepository().fetchTrendingMovie()
-  const popularData = await MoviesRepository().fetchPopularMovie()
+  const discoverMovie = await MoviesRepository().fetchPopularMovie()
+  const trendingMovie = await MoviesRepository().fetchTrendingMovie()
+  const popularMovie = await MoviesRepository().fetchPopularMovie()
 
-  if (!trendingData) {
+  if (!trendingMovie) {
     return {
       notFound: true,
     }
   }
 
   return {
-    props: { trending: trendingData.results, popular: popularData.results },
+    props: {
+      trending: trendingMovie.results,
+      popular: popularMovie.results,
+      discoverMovie: discoverMovie.results,
+    },
   }
 }
 

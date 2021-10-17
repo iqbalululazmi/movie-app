@@ -1,26 +1,47 @@
 import BannerComponent from '@components/Banner'
+import { IBannerProps } from '@components/Banner/libraries/banner.types'
 import Carousel from '@components/Carousel'
 import { ICarouselImagesProps } from '@components/Carousel/libraries/carousel.type'
+import { CONFIG } from '@libraries/config/api'
 import { IHomeResponseProps } from '@libraries/types/home.type'
 import { IResultProps } from '@libraries/types/result.type'
 import { useEffect, useState } from 'react'
 
-export const discover = {
-  src: 'https://www.themoviedb.org/t/p/w880_and_h600_multi_faces_filter(duotone,032541,01b4e4)/jXDz3w8blsaPvw2OUA0i8zPIvHg.jpg',
-  alt: 'Image Discover',
-}
-
-const HomeContainer = ({ trending, popular }: IHomeResponseProps) => {
+const HomeContainer = ({
+  trending,
+  popular,
+  discoverMovie,
+}: IHomeResponseProps) => {
   const [carouselTrending, setCarouselTrending] = useState<
     ICarouselImagesProps[]
   >([])
   const [carouselPopular, setCarouselPopular] = useState<
     ICarouselImagesProps[]
   >([])
+  const [bannerDiscover, setBannerDiscover] = useState<IBannerProps>({
+    src: '',
+    alt: '',
+    title: '',
+    date: '',
+  })
 
   useEffect(() => {
+    handleBannerDiscover()
     handleCarousel()
   }, [])
+
+  const handleBannerDiscover = () => {
+    if (discoverMovie && discoverMovie.length > 0) {
+      const random = Math.floor(Math.random() * discoverMovie.length)
+      const selectedBanner = discoverMovie[random]
+      setBannerDiscover({
+        alt: selectedBanner.title,
+        src: CONFIG.BASE_IMAGE_URL + selectedBanner.backdrop_path,
+        date: selectedBanner.release_date,
+        title: selectedBanner.title,
+      })
+    }
+  }
 
   const carouselMap = (data: IResultProps[]) => {
     return data.map((item) => {
@@ -29,7 +50,6 @@ const HomeContainer = ({ trending, popular }: IHomeResponseProps) => {
         alt: item.title,
         id: item.id,
       }
-
       return newObj
     })
   }
@@ -49,7 +69,7 @@ const HomeContainer = ({ trending, popular }: IHomeResponseProps) => {
   return (
     <>
       <div className="my-4">
-        <BannerComponent {...discover} />
+        {bannerDiscover && <BannerComponent {...bannerDiscover} />}
       </div>
       <Carousel datas={carouselTrending} title="Trending Now" />
       <Carousel datas={carouselPopular} title="Popular" />
