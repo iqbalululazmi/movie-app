@@ -1,6 +1,6 @@
 import MovieContainer from '@containers/movie'
 import MoviesRepository from '@libraries/repositories/movies'
-import { IMovieResponseProps } from '@libraries/types/movies.type'
+import { IMoviesResponseProps } from '@libraries/types/movies.type'
 
 export async function getServerSideProps() {
   const { results } = await MoviesRepository().fetchNowPlaying()
@@ -18,7 +18,7 @@ export async function getServerSideProps() {
   }
 }
 
-const MoviePage = ({ movies }: IMovieResponseProps) => {
+const MoviePage = ({ movies }: IMoviesResponseProps) => {
   return (
     <>
       <MovieContainer movies={movies} />

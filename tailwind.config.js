@@ -20,7 +20,14 @@ module.exports = {
         900: '#101f3f',
       },
     },
-    extend: {},
+    extend: {
+      height: () => ({
+        '32rem': '32rem',
+      }),
+      width: () => ({
+        '32rem': '32rem',
+      }),
+    },
   },
   variants: {
     extend: {},
