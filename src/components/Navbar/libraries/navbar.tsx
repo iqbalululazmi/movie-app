@@ -12,7 +12,7 @@ const navigation = [
 
 const NavbarComponent = () => {
   return (
-    <Disclosure as="nav" className="bg-primary-900">
+    <Disclosure as="nav" className="bg-red-600">
       {({ open }) => (
         <>
           <div className="max-w-full mx-auto px-2 sm:px-6 lg:px-16">
@@ -47,7 +47,7 @@ const NavbarComponent = () => {
                         className={classNames(
                           item.current
                             ? 'bg-gray-900 text-white'
-                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                            : 'text-gray-300 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -59,15 +59,15 @@ const NavbarComponent = () => {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex gap-3 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <div className="text-gray-400 hover:text-white hidden sm:block">
+                <div className="text-gray-300 hover:text-white hidden sm:block">
                   <a href="/login">Login</a>
                 </div>
                 <button
                   type="button"
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  className="p-1 rounded-full text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 >
                   <span className="sr-only">View notifications</span>
-                  <SearchIcon className="h-6 w-6" aria-hidden="true" />
+                  <SearchIcon className="h-6 w-6 bg-none" aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -82,7 +82,7 @@ const NavbarComponent = () => {
                   className={classNames(
                     item.current
                       ? 'bg-gray-900 text-white'
-                      : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      : 'text-gray-300 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
