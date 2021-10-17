@@ -1,13 +1,6 @@
-import { CONFIG } from '../../config/api'
+import { API_ENDPOINT } from '@libraries/config/api'
 
-// api helpers
-const API_ENDPOINT = {
-  NOW_PLAYING: `${CONFIG.BASE_URL}movie/now_playing?api_key=${CONFIG.KEY}&language=${CONFIG.DEFAULT_LANGUAGE}`,
-  UPCOMING: `${CONFIG.BASE_URL}movie/upcoming?api_key=${CONFIG.KEY}&language=${CONFIG.DEFAULT_LANGUAGE}&page=1`,
-  DETAIL: (id) => `${CONFIG.BASE_URL}movie/${id}?api_key=${CONFIG.KEY}`,
-}
-
-function MoviesRepository() {
+const MoviesRepository = () => {
   const fetchNowPlaying = async (page = 1) => {
     const response = await fetch(`${API_ENDPOINT.NOW_PLAYING}&page=${page}`, {
       method: 'GET',
@@ -24,10 +17,30 @@ function MoviesRepository() {
     return data
   }
 
+  const fetchTrendingMovie = async () => {
+    console.log(API_ENDPOINT.TRENDING)
+    const response = await fetch(API_ENDPOINT.TRENDING, {
+      method: 'GET',
+    })
+    const data = await response.json()
+    return data
+  }
+
+  const fetchPopularMovie = async () => {
+    console.log(API_ENDPOINT.TRENDING)
+    const response = await fetch(API_ENDPOINT.POPULAR, {
+      method: 'GET',
+    })
+    const data = await response.json()
+    return data
+  }
+
   return {
     fetchNowPlaying,
     fetchDetailMovie,
+    fetchTrendingMovie,
+    fetchPopularMovie,
   }
 }
 
-export default MoviesRepository()
+export default MoviesRepository
