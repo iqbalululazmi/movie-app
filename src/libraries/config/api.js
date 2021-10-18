@@ -12,4 +12,5 @@ export const API_ENDPOINT = {
   TRENDING: `${CONFIG.BASE_URL}trending/movie/week?api_key=${CONFIG.KEY}&page=1`,
   POPULAR: `${CONFIG.BASE_URL}movie/popular?api_key=${CONFIG.KEY}&page=1`,
   DISCOVER: `${CONFIG.BASE_URL}discover/movie?api_key=${CONFIG.KEY}&page=1&language=${CONFIG.DEFAULT_LANGUAGE}`,
+  SEARCH: `${CONFIG.BASE_URL}search/movie?api_key=${CONFIG.KEY}&page=1&language=${CONFIG.DEFAULT_LANGUAGE}`,
 }

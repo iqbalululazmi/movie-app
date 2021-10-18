@@ -9,6 +9,7 @@ export type IStateProps = {
   movies: IResultProps[]
   releaseDate?: IReleaseDateProps
   page?: number
+  query?: string
 }
 
 export type IStateSelectorProps = {
@@ -19,4 +20,8 @@ export type IReleaseDateProps = {
   year: number
   gte: string
   lte: string
+}
+
+export type ISearchProps = {
+  query: string
 }

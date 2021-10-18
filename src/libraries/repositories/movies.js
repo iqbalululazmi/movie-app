@@ -47,12 +47,25 @@ const MoviesRepository = () => {
     return data
   }
 
+  const fetchSearchMovie = async (query) => {
+    console.log(API_ENDPOINT.DISCOVER)
+    const response = await fetch(
+      `${API_ENDPOINT.SEARCH}&${new URLSearchParams(query)}`,
+      {
+        method: 'GET',
+      }
+    )
+    const data = await response.json()
+    return data
+  }
+
   return {
     fetchNowPlaying,
     fetchDetailMovie,
     fetchTrendingMovie,
     fetchPopularMovie,
     fetchDiscoverMovie,
+    fetchSearchMovie,
   }
 }
 

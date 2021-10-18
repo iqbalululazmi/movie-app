@@ -15,10 +15,9 @@ export default function ListBox({
 
   useEffect(() => {
     if (initialValue) {
-      console.log('test')
       setSelectedValue(initialValue)
     }
-  }, [])
+  }, [initialValue])
 
   const handleOnChange = (e: IListBoxOptionsProps) => {
     setSelectedValue(e)

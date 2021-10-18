@@ -6,11 +6,12 @@ const { createSlice } = require('@reduxjs/toolkit')
 const initialState = {
   movies: [], // data
   releaseDate: {
-    year: 2021,
+    year: 0,
     gte: '',
     lte: '',
   },
   page: 1,
+  keyword: '',
 }
 
 const slices = createSlice({
@@ -32,14 +33,21 @@ const slices = createSlice({
         page,
       })
     },
-    filterByYear(state: IStateProps, action: IActionsProps) {
+    filterByYear(state: IStateProps, actions: IActionsProps) {
       Object.assign(state, {
         ...state,
-        releaseDate: action.payload,
+        releaseDate: actions.payload,
+      })
+    },
+    search(state: IStateProps, actions: IActionsProps) {
+      const { query } = actions.payload
+      Object.assign(state, {
+        ...state,
+        query,
       })
     },
   },
 })
 
-export const { fetchMovie, paging, filterByYear } = slices.actions
+export const { fetchMovie, paging, filterByYear, search } = slices.actions
 export default slices.reducer

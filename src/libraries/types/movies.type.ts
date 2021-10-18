@@ -21,4 +21,5 @@ export type IPayloadDiscoverMovieProps = {
   language?: string
   'release_date.gte'?: string
   'release_date.lte'?: string
+  query?: string
 }

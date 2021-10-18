@@ -5,7 +5,7 @@ import { IDisclosureProps } from './disclosure.type'
 const DisclosureComponent = ({ title, children }: IDisclosureProps) => {
   return (
     <div className="w-full">
-      <div className="max-w-md w-44 p-2 mx-auto bg-white rounded-2xl border">
+      <div className="max-w-md w-44 lg:w-56 p-2 mx-auto bg-white rounded-2xl border">
         <Disclosure>
           {({ open }) => (
             <>
