@@ -23,6 +23,7 @@ const HomeContainer = ({
     alt: '',
     title: '',
     date: '',
+    route: '',
   })
 
   useEffect(() => {
@@ -39,6 +40,7 @@ const HomeContainer = ({
         src: CONFIG.BASE_IMAGE_URL + selectedBanner.backdrop_path,
         date: selectedBanner.release_date,
         title: selectedBanner.title,
+        route: `/movie/${selectedBanner.id}`,
       })
     }
   }
@@ -49,6 +51,7 @@ const HomeContainer = ({
         src: item.poster_path,
         alt: item.title,
         id: item.id,
+        route: `/movie/${item.id}`,
       }
       return newObj
     })

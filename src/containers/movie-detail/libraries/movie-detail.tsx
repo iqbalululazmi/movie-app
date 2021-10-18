@@ -5,7 +5,6 @@ import ImageComponent from '@components/Image'
 import {
   BookmarkIcon,
   HeartIcon,
-  InformationCircleIcon,
   PlayIcon,
   StarIcon,
   ViewListIcon,
@@ -32,6 +31,7 @@ const MovieItemDetail = ({ movie, similarMovie }: IMovieDetailProps) => {
         src: item.poster_path,
         alt: item.title,
         id: item.id,
+        route: `/movie/${item.id}`,
       }
       return newObj
     })
@@ -89,18 +89,11 @@ const MovieItemDetail = ({ movie, similarMovie }: IMovieDetailProps) => {
                 <PlayIcon className="block h-6 w-6 mx-1" aria-hidden="true" />
                 <span className="font-semibold">Watch Now</span>
               </ButtonComponent>
-              <ButtonComponent color="medium" opacity={85}>
-                <InformationCircleIcon
-                  className="block h-6 w-6 mx-1"
-                  aria-hidden="true"
-                />
-                More Info
-              </ButtonComponent>
             </div>
           </div>
         </div>
       </div>
-      <div>
+      <div className="my-4">
         <Carousel datas={similarMovieCarousel} title="Similar Movie" />
       </div>
     </div>
