@@ -23,6 +23,7 @@ module.exports = {
     extend: {
       height: () => ({
         '32rem': '32rem',
+        '36rem': '36rem',
       }),
       width: () => ({
         '32rem': '32rem',
