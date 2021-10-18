@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://movie-app.vercel.app
+Host: https://https://movie-app-murex.vercel.app
 
 # Sitemaps
-Sitemap: https://movie-app.vercel.app/sitemap.xml
+Sitemap: https://https://movie-app-murex.vercel.app/sitemap.xml

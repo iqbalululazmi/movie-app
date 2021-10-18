@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: 'https://movie-app.vercel.app',
+  siteUrl: 'https://https://movie-app-murex.vercel.app',
   generateRobotsTxt: true,
 }

@@ -3,4 +3,5 @@ export interface IBannerProps {
   alt: string
   title: string
   date: string
+  route: string
 }

@@ -2,6 +2,7 @@ import ButtonComponent from '@components/Button'
 import ImageComponent from '@components/Image'
 import { InformationCircleIcon, PlayIcon } from '@heroicons/react/outline'
 import { IBannerProps } from './banner.types'
+import Link from 'next/link'
 
 const BannerComponent = ({ ...props }: IBannerProps) => {
   return (
@@ -22,7 +23,9 @@ const BannerComponent = ({ ...props }: IBannerProps) => {
                   className="block h-6 w-6 mx-1"
                   aria-hidden="true"
                 />
-                More Info
+                <Link href={props.route} passHref>
+                  More Info
+                </Link>
               </ButtonComponent>
             </div>
           </div>

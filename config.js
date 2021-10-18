@@ -1,5 +1,5 @@
 export const seo = {
   title: 'The Movie App | Link Aja',
   description: 'The Movie App Description',
-  canonical: 'https://movie-app.vercel.app/',
+  canonical: 'https://https://movie-app-murex.vercel.app/',
 }
