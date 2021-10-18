@@ -103,8 +103,8 @@ const MovieContainer = () => {
 
   return (
     <>
-      <div className="grid lg:grid-cols-6 gap-4 my-12 lg:flex lg:flex-row">
-        <div className="flex lg:flex-col gap-2 z-10">
+      <div className="grid lg:grid-cols-6 lg:gap-4 sm:gap-2 my-12 lg:flex lg:flex-row">
+        <div className="flex lg:flex-col gap-2 z-10 mb-3">
           <DisclosureComponent title="Search">
             <h1 className="text-gray-500">Search Results By</h1>
             <SearchComponent />

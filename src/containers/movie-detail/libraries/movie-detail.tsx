@@ -52,16 +52,16 @@ const MovieItemDetail = ({ movie, similarMovie }: IMovieDetailProps) => {
           alt={movie.title}
           className="rounded-xl bg-blend-darken"
         />
-        <div className="bg-red-900 h-36rem z-10 absolute w-full opacity-25"></div>
-        <div className="absolute h-full flex flex-row items-center justify-center p-8 gap-3 z-20">
-          <div className="flex-none w-72 h-full relative rounded-xl">
+        <div className="hidden lg:block bg-red-900 h-36rem z-10 absolute w-full opacity-25"></div>
+        <div className="lg:absolute h-full flex flex-row items-center justify-center p-8 gap-3 z-20">
+          <div className="flex-none w-72 h-full relative rounded-xl hidden md:block">
             <ImageComponent
               src={`${CONFIG.BASE_IMAGE_URL}${movie.poster_path}`}
               alt={movie.title}
               className="rounded-xl"
             />
           </div>
-          <div className="flex-auto h-full flex flex-col justify-start px-12 py-4 z-20">
+          <div className="flex-auto h-full flex flex-col justify-start md:px-12 py-4 z-20">
             <h1 className="text-4xl text-white font-bold">
               {movie.title} ( {new Date(movie.release_date).getFullYear()} )
             </h1>
