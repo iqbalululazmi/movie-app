@@ -18,4 +18,7 @@ export type IResultProps = {
   id: number
   popularity: number
   media_type: string
+  genres: IGenresProps[]
 }
+
+type IGenresProps = { id: number; name: string }

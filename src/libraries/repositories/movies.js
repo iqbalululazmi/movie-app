@@ -59,6 +59,14 @@ const MoviesRepository = () => {
     return data
   }
 
+  const fetchSimilarMovie = async (id) => {
+    const response = await fetch(API_ENDPOINT.SIMILAR(id), {
+      method: 'GET',
+    })
+    const data = await response.json()
+    return data
+  }
+
   return {
     fetchNowPlaying,
     fetchDetailMovie,
@@ -66,6 +74,7 @@ const MoviesRepository = () => {
     fetchPopularMovie,
     fetchDiscoverMovie,
     fetchSearchMovie,
+    fetchSimilarMovie,
   }
 }
 

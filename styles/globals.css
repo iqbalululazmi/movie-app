@@ -18,3 +18,14 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.circle {
+  color: white;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  vertical-align: middle;
+  display: flex;
+}

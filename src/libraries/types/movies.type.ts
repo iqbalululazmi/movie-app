@@ -6,6 +6,7 @@ export type IMoviesResponseProps = {
 
 export type IMovieDetailProps = {
   movie: IResultProps
+  similarMovie: IResultProps[]
 }
 
 export type IMovieDetailContext = {

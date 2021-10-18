@@ -10,23 +10,23 @@ export async function getServerSideProps(context: IMovieDetailContext) {
     params: { movieId },
   } = context
   const movie = await MoviesRepository().fetchDetailMovie(movieId)
-  console.log('movie detail : ', movie)
+  const similarMovie = await MoviesRepository().fetchSimilarMovie(movieId)
+  console.log(similarMovie)
   return {
     props: {
       movie,
+      similarMovie: similarMovie.results,
     },
   }
 }
 
-export default function MovieDetail({ movie }: IMovieDetailProps) {
-  // const pages = [
-  //   { name: 'Home', href: '/', current: false },
-  //   { name: movie.title, href: '#', current: true },
-  // ]
-
+export default function MovieDetail({
+  movie,
+  similarMovie,
+}: IMovieDetailProps) {
   return (
     <div className="flex justify-start items-start flex-col">
-      <MovieItemDetail {...movie} />
+      <MovieItemDetail movie={movie} similarMovie={similarMovie} />
     </div>
   )
 }
